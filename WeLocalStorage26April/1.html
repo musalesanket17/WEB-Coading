@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MasaiInvesters</title>
+    <style>
+        #nav>div{
+            background-color: pink;
+            display: flex;
+
+        }
+        a{
+            text-decoration: none;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="nav">
+        <div><a href="backend.html">Backend</a></div>
+        <div><a href="frontend.html">Frontend</a></div>
+    </div>
+    <form id="form">
+        <input type="text" placeholder="Enter IMG URL" id="IMG">
+        <input type="text" placeholder="Enter Name" id="name">
+        <input type="text" placeholder="Company Role " id="role">
+        <input type="text" placeholder=" Enter Logo URL" id="logo">
+        <input type="submit"/>
+    </form>
+</body>
+</html>
+<script>
+     document.querySelector("#form").addEventListener("submit",myfun)
+    var arr= JSON.parse(localStorage.getItem("Investerdata")) || [] 
+    //  var arr=[];
+     function myfun(){
+         event.preventDefault();
+         
+          var obj={
+              investerImg:form.IMG.value,
+              investerName:form.name.value,
+              investerRole:form.role.value,
+              investerCompanyLogo:form.logo.value,
+          } 
+         
+        arr.push(obj)
+        //console.log(arr)
+        localStorage.setItem("Investerdata",JSON.stringify(arr))
+     }
+</script>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRONTEND</title>
+    <style>
+        #container{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows: repeat(4,auto);
+            gap:20px;
+        }
+        P+img{
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+</body>
+</html>
+<script>
+
+    var arr=JSON.parse(localStorage.getItem("Investerdata"))
+
+    arr.forEach(function(el){
+         
+        var box=document.createElement("div")
+        
+        var avtar=document.createElement("img")
+         avtar.setAttribute("src",el.investerImg)
+        var name=document.createElement("h3")
+         name.innerText=el.investerName
+        var role=document.createElement("p")
+         role.innerText=el.investerRole
+        var logo=document.createElement("img")
+        //  logo.innerText= el.investerCompanyLogo
+        logo.setAttribute("src",el.investercompanyLogo)
+        box.append(avtar,name,role,logo)
+        document.querySelector("#container").append(box)
+    })
+</script>
